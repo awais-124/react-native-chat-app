@@ -56,10 +56,10 @@ const Update = ({navigation, route}) => {
       ? 'Email not valid'
       : 'Invalid Phone Number. Must be longer than 9 characters';
 
-    if (!(CONSTANTS.emailRegex.test(email) && pass.length >= 6 && phone.length > 9)) {
-        Alert.alert('Error', message);
-        return;
-      }
+    if (!(CONSTANTS.emailRegex.test(email) && phone.length > 9)) {
+      Alert.alert('Error', message);
+      return;
+    }
     
     try {
       setLoading(true);
