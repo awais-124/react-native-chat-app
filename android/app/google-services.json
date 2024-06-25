@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "635120419090",
+    "project_id": "isf-cipherchat",
+    "storage_bucket": "isf-cipherchat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635120419090:android:da72f536e8535049bbb3cb",
+        "android_client_info": {
+          "package_name": "com.cipherchat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsaLVDYsKNRNZBk7lYYiN7MPM5PMJ9d1c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
