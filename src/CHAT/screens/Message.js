@@ -9,7 +9,7 @@ import {
   Keyboard,
 } from 'react-native';
 
-import {GiftedChat, Bubble, InputToolbar, Send} from 'react-native-gifted-chat';
+import {GiftedChat, Bubble} from 'react-native-gifted-chat';
 
 import {useRoute} from '@react-navigation/native';
 import firestore from '@react-native-firebase/firestore';
@@ -36,13 +36,6 @@ const Message = ({navigation}) => {
   const receiverId = route.params?.receiver.userId;
   const receiverName = route.params?.receiver.name;
   const publicKey = route.params?.receiver.publicKey;
-
-  // const {
-  //   params: {
-  //     id: senderId,
-  //     receiver: {userId: receiverId, name: receiverName, publicKey} = {},
-  //   } = {},
-  // } = useRoute();
 
   useEffect(() => {
     const getMyPrivateKey = async () => {

@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
     ...FONTFAMILY.MONTSERRAT.reg.pt16,
     color: COLORS.secondary.black,
     flexShrink: 1,
+    textTransform: 'capitalize',
   },
   email: {
     ...FONTFAMILY.MONTSERRAT.reg.pt16,

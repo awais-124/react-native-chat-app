@@ -120,6 +120,7 @@ const styles = StyleSheet.create({
   name: {
     ...FONTFAMILY.MONTSERRAT.md.pt18,
     textTransform: 'capitalize',
+    color: COLORS.secondary.black,
   },
   avatar: {
     height: 45,

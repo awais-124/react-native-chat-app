@@ -4,8 +4,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Splash from '../AUTH/screens/Splash';
 import SignIn from '../AUTH/screens/SignIn';
 import SignUp from '../AUTH/screens/SignUp';
-import ForgotPass from '../AUTH/screens/ForgotPass';
-import ResetPass from '../AUTH/screens/ResetPass';
+// import ForgotPass from '../AUTH/screens/ForgotPass';
+// import ResetPass from '../AUTH/screens/ResetPass';
 
 import Message from '../CHAT/screens/Message';
 import Chat from '../CHAT/screens/Chat';
@@ -29,8 +29,8 @@ export default function AppNavigator() {
         <Stack.Screen name="Splash" component={Splash} />
         <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="SignUp" component={SignUp} />
-        <Stack.Screen name="ForgotPass" component={ForgotPass} />
-        <Stack.Screen name="ResetPass" component={ResetPass} />
+        {/* <Stack.Screen name="ForgotPass" component={ForgotPass} />
+        <Stack.Screen name="ResetPass" component={ResetPass} /> */}
         <Stack.Screen name="Chat" component={Chat} />
         <Stack.Screen name="Message" component={Message} />
         <Stack.Screen name="Contact" component={Contact} />
