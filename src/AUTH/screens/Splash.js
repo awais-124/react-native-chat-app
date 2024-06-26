@@ -16,7 +16,7 @@ import FLEX from '../styles/flex';
 import {screen_height} from '../utils/Dimensions';
 const {COMFORTAA: com, MONTSERRAT: mon, POPPINS: pop} = FONTFAMILY;
 
-
+/*************************              FUNCTION CODE STARTS HERE                ***********************/
 const Splash = ({navigation}) => {
   const checkLogin = async () => {
     const email = await StorageService.getItem('EMAIL');
@@ -35,11 +35,12 @@ const Splash = ({navigation}) => {
     <ImageBackground source={ASSETS.SplashBack} style={[FLEX.centeredFill]}>
       <CustomStatusBar />
       <Logo style={FLEX.centeredFill} />
-      {/* <Text style={[FONTS.semibold.pt14, styles.baseText]}> */}
       <Text style={[styles.baseText]}>Your best choice for chatting</Text>
     </ImageBackground>
   );
 };
+/*************************              FUNCTION CODE ENDS HERE                ***********************/
+
 
 export default Splash;
 

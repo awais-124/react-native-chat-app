@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     paddingTop: screen_height * 0.06,
-    paddingBottom:70
+    paddingBottom: 70,
   },
   scrollContent: {
     paddingVertical: 20,

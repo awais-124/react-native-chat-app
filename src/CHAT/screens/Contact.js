@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
     elevation: 5,
     gap: 10,
   },
-  databox: {gap: 5},
+  databox: {gap: 5, flex: 1},
   keyContainerStyle: {
     backgroundColor: COLORS.primary.blue,
     padding: 15,

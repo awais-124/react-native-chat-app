@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View,Image} from 'react-native';
+import {StyleSheet, Text, View, Image} from 'react-native';
 
 import {screen_height, screen_width} from '../../AUTH/utils/Dimensions';
 
@@ -28,7 +28,7 @@ export default About;
 const styles = StyleSheet.create({
   card: {
     borderRadius: 10,
-    padding: 20,
+    padding: 15,
     width: screen_width * 0.85,
     elevation: 10,
     gap: 15,
@@ -40,22 +40,26 @@ const styles = StyleSheet.create({
   name: {
     ...FONTFAMILY.MONTSERRAT.reg.pt16,
     color: COLORS.secondary.black,
+    flexShrink: 1,
+    textTransform: 'capitalize',
   },
   email: {
     ...FONTFAMILY.MONTSERRAT.reg.pt16,
     color: COLORS.secondary.black,
+    flexShrink: 1,
   },
   dob: {
     ...FONTFAMILY.MONTSERRAT.reg.pt16,
     color: COLORS.secondary.black,
+    flexShrink: 1,
   },
   icons: {width: 25, height: 25},
-  icon: {aspectRatio:1,  height: 30},
+  icon: {aspectRatio: 1, height: 30},
   col: {
     flexDirection: 'column',
-    alignItems:"flex-start",
+    alignItems: 'flex-start',
     justifyContent: 'space-between',
   },
-  colone: { gap: 14 },
-  coltwo: { gap: 18 }
+  colone: {gap: 14},
+  coltwo: {gap: 18, flex: 1}, // Added flex: 1 to allow proper wrapping
 });

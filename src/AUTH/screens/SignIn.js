@@ -32,43 +32,46 @@ import {screen_height, screen_width} from '../utils/Dimensions';
 const {COMFORTAA: com, MONTSERRAT: mon, POPPINS: pop} = FONTFAMILY;
 const {primary: p, secondary: s} = COLORS;
 
+/*************************              FUNCTION CODE STARTS HERE                ***********************/
+
+
 const Home = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [visible, setVisible] = useState(false);
   const {navigate} = navigation;
-
+  
   const handlePass = pass => setPassword(pass);
   const handleEmail = email => setEmail(email);
-
+  
   const navigateForward = name => {
     setPassword('');
     setEmail('');
     navigate(name);
   };
-
+  
   const submitForm = () => {
     const isEmpty = email.length === 0 || password.length === 0;
     const formIsValid =
-      !isEmpty && CONSTANTS.emailRegex.test(email) && password.length > 5;
+    !isEmpty && CONSTANTS.emailRegex.test(email) && password.length > 5;
     let message = isEmpty
-      ? 'Email and Password cannot be empty'
-      : !CONSTANTS.emailRegex.test(email)
-      ? 'Not a valid email'
-      : 'Password is less than 6 characters';
-
+    ? 'Email and Password cannot be empty'
+    : !CONSTANTS.emailRegex.test(email)
+    ? 'Not a valid email'
+    : 'Password is less than 6 characters';
+    
     if (formIsValid) signInUser();
     else Alert.alert('Error', message);
   };
-
+  
   const signInUser = async () => {
     try {
       console.log('ENTERED TRY BLOCK');
       setVisible(true);
       const querySnapshot = await firestore()
-        .collection('users')
-        .where('email', '==', email)
-        .get();
+      .collection('users')
+      .where('email', '==', email)
+      .get();
       if (querySnapshot.docs.length !== 0) {
         console.log('FETCHED DATA');
         setVisible(false);
@@ -108,7 +111,7 @@ const Home = ({navigation}) => {
       console.log(error);
     }
   };
-
+  
   const gotoNext = async (
     name,
     email,
@@ -134,7 +137,7 @@ const Home = ({navigation}) => {
     // await navigation.pop(1);
     await navigation.replace('Chat');
   };
-
+  
   return (
     <ScreenWrapper>
       <ImageBackground source={ASSETS.SignInBack} style={[FLEX.fill]}>
@@ -149,25 +152,25 @@ const Home = ({navigation}) => {
               labelColor={s.greyThree}
               data={email}
               onChange={handleEmail}
-            />
+              />
             <LabelledInput
               label="Password"
               labelColor={s.greyThree}
               data={password}
               onChange={handlePass}
-            />
+              />
             <BtnSimple
               text="Sign In"
               back={p.orange}
               color={s.white}
               onClick={submitForm}
               style={styles.btn}
-            />
-            <TouchableOpacity onPress={() => navigateForward('ForgotPass')}>
+              />
+            {/* <TouchableOpacity onPress={() => navigateForward('ForgotPass')}>
               <Text style={{...FONTFAMILY.MONTSERRAT.reg.pt14}}>
-                Forgot Password?
+              Forgot Password?
               </Text>
-            </TouchableOpacity>
+              </TouchableOpacity> */}
             <View style={[FLEX.row, {gap: 3}]}>
               <Text style={[styles.footerText, FONTS.regular.pt14]}>
                 Don't have an account yet?
@@ -188,6 +191,7 @@ const Home = ({navigation}) => {
     </ScreenWrapper>
   );
 };
+/*************************              FUNCTION CODE ENDS HERE                ***********************/
 
 export default Home;
 

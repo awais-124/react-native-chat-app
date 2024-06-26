@@ -6,7 +6,6 @@ import MessageBack from '../../assets/BackgroundImages/message-back-purple.png';
 import KeysBack from '../../assets/BackgroundImages/keys-back.png';
 import WALLPAPER from '../../assets/BackgroundImages/wallpaper.jpg';
 import TopBar from '../../assets/Images/top_bar.png';
-import WhiteLogo from '../../assets/Logos/white_back_logo.png';
 import Check from '../../assets/Images/check.png';
 import CIPHERWHITE from '../../assets/Logos/white-logo.png';
 import CIPHERBLACK from '../../assets/Logos/black-logo.png';
@@ -26,7 +25,6 @@ const ASSETS = {
   ProfileBack,
   KeysBack,
   TopBar,
-  WhiteLogo,
   Check,
 };
 

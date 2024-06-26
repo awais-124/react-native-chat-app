@@ -36,31 +36,32 @@ import {screen_width} from '../utils/Dimensions';
 const {COMFORTAA: com, MONTSERRAT: mon, POPPINS: pop} = FONTFAMILY;
 const {secondary: s, primary: p} = COLORS;
 
+/*************************              FUNCTION CODE STARTS HERE                ***********************/
 const SignUp = ({navigation}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [pass, setPass] = useState('');
   const [confirmPass, setConfirmPass] = useState('');
-
+  
   const [date, setDate] = useState(null);
   const [open, setOpen] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
   const [visible, setVisible] = useState(false);
-
+  
   const handleEmail = val => setEmail(val);
   const handleName = val => setName(val);
   const handlePass = val => setPass(val);
   const handleConfirmPass = val => setConfirmPass(val);
   const handlePhone = val => setPhone(val);
   const handleDatePicker = () => setOpen(true);
-
+  
   const onCancelDate = () => setOpen(false);
   const onConfirmDate = date => {
     setDate(date);
     setOpen(false);
   };
-
+  
   const clearInputs = () => {
     setDate('');
     setEmail('');
@@ -69,12 +70,12 @@ const SignUp = ({navigation}) => {
     setConfirmPass('');
     setPhone('');
   };
-
+  
   const goToSignIn = async () => {
     clearInputs();
     await navigation.navigate('SignIn');
   };
-
+  
   const handleFormSubmission = async () => {
     setVisible(true);
     const {message, isValid} = await HANDLERS.handleFormValidity(
@@ -85,24 +86,24 @@ const SignUp = ({navigation}) => {
       name,
       date,
     );
-
+    
     if (isValid) {
       try {
         const querySnapshot = await firestore()
-          .collection('users')
-          .where('email', '==', email)
-          .get();
+        .collection('users')
+        .where('email', '==', email)
+        .get();
         console.log('EMAIL QUERY', querySnapshot);
         let errorMessage = 'User already Exists with provided email!';
         let alreadyExists = false;
-
+        
         if (!querySnapshot.empty) alreadyExists = true;
-
+        
         if (!alreadyExists) {
           const phoneQuery = await firestore()
-            .collection('users')
-            .where('phone', '==', phone)
-            .get();
+          .collection('users')
+          .where('phone', '==', phone)
+          .get();
           if (!phoneQuery.empty) {
             alreadyExists = true;
             errorMessage = 'User already Exists with provided phone number!';
@@ -146,7 +147,7 @@ const SignUp = ({navigation}) => {
       Alert.alert('Error', message);
     }
   };
-
+  
   useEffect(() => {
     const showSubscription = Keyboard.addListener('keyboardDidShow', () => {
       setIsFocused(true);
@@ -154,13 +155,13 @@ const SignUp = ({navigation}) => {
     const hideSubscription = Keyboard.addListener('keyboardDidHide', () => {
       setIsFocused(false);
     });
-
+    
     return () => {
       showSubscription.remove();
       hideSubscription.remove();
     };
   }, []);
-
+  
   return (
     <ScreenWrapper>
       <ImageBackground
@@ -182,28 +183,28 @@ const SignUp = ({navigation}) => {
                 label="Phone Number"
                 data={phone}
                 onChange={handlePhone}
-              />
+                />
               <LabelledInput
                 label="Email Address"
                 data={email}
                 onChange={handleEmail}
-              />
+                />
               <LabelledInput
                 label="Password"
                 data={pass}
                 onChange={handlePass}
-              />
+                />
               <LabelledInput
                 label="Confirm Password"
                 data={confirmPass}
                 onChange={handleConfirmPass}
-              />
+                />
               <DateInput
                 label="Birthday"
                 onClick={handleDatePicker}
                 data={date ? date.toDateString() : ''}
                 disabled={false}
-              />
+                />
               <DatePicker
                 androidVariant="nativeAndroid"
                 modal
@@ -216,13 +217,13 @@ const SignUp = ({navigation}) => {
                 textColor={s.black}
                 buttonColor={p.orange}
                 title="Pick Date"
-              />
+                />
               <BtnSimple
                 text="Sign Up"
                 back={p.orange}
                 color={s.white}
                 onClick={handleFormSubmission}
-              />
+                />
               <View style={styles.footer}>
                 <Text style={styles.footerText}>Already have an account?</Text>
                 <TouchableOpacity onPress={goToSignIn}>
@@ -236,6 +237,7 @@ const SignUp = ({navigation}) => {
     </ScreenWrapper>
   );
 };
+/*************************              FUNCTION CODE ENDS HERE                ***********************/
 
 export default SignUp;
 
