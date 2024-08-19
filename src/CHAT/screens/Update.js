@@ -21,6 +21,7 @@ import LabelledInput from '../../AUTH/components/LabelledInput';
 import CustomStatusBar from '../../AUTH/components/CustomStatusBar';
 
 import FLEX from '../../AUTH/styles/flex';
+
 import ICONS from '../../AUTH/helpers/icons';
 import CONSTANTS from '../../AUTH/helpers/CONSTANTS';
 
@@ -35,7 +36,6 @@ const Update = ({navigation, route}) => {
   const [email, setEmail] = useState(data.email);
   const [phone, setPhone] = useState(data.phone);
   const [date, setDate] = useState(new Date(data.dob));
-
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -45,10 +45,8 @@ const Update = ({navigation, route}) => {
   const handleDatePicker = () => setOpen(true);
 
   const handleEditSubmission = async () => {
-    // checking for empty fields
-
-    if (name.length === "" || phone.length === "" || email.length === "") {
-      Alert.alert("Empty Fields", "Input fields cannot be empty!");
+    if (name.length === '' || phone.length === '' || email.length === '') {
+      Alert.alert('Empty Fields', 'Input fields cannot be empty!');
       return;
     }
 
@@ -60,7 +58,7 @@ const Update = ({navigation, route}) => {
       Alert.alert('Error', message);
       return;
     }
-    
+
     try {
       setLoading(true);
       const querySnapshot = await firestore()
@@ -69,9 +67,6 @@ const Update = ({navigation, route}) => {
         .get();
 
       const fetchedData = querySnapshot.docs[0].data();
-
-      console.log(CONSTANTS.formatTimestamp(fetchedData.date));
-      console.log(date);
 
       if (
         fetchedData.name === name &&
@@ -94,8 +89,6 @@ const Update = ({navigation, route}) => {
         phone: phone,
         date: date,
       });
-
-      console.log('User updated!');
       gotoNext();
 
       Alert.alert('Success', 'Data updated successfully');
@@ -125,7 +118,6 @@ const Update = ({navigation, route}) => {
     } catch (error) {
       console.log({error});
     }
-
     setLoading(false);
   };
   const onCancelDate = () => setOpen(false);

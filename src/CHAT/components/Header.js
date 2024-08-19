@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.primary.blue,
   },
   title: {
-    color: '#fff',
+    color: COLORS.secondary.white,
     fontSize: 18,
     fontWeight: '300',
     textTransform: 'uppercase',
@@ -42,6 +42,6 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   icon: {
-    tintColor: '#fff',
+    tintColor: COLORS.secondary.white,
   },
 });

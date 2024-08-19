@@ -1,6 +1,6 @@
 import {StyleSheet, Text, View, Image} from 'react-native';
 
-import {screen_height, screen_width} from '../../AUTH/utils/Dimensions';
+import {screen_width} from '../../AUTH/utils/Dimensions';
 
 import COLORS from '../../AUTH/styles/colors';
 import FONTFAMILY from '../../AUTH/styles/fonts';

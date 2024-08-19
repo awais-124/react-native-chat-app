@@ -1,23 +1,14 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  ScrollView,
-  ImageBackground,
-  StatusBar,
-  Image,
-  TouchableOpacity,
-} from 'react-native';
+import {StyleSheet, Text, View, ScrollView, Image} from 'react-native';
 import React, {useEffect, useState} from 'react';
 
-import ASSETS from '../../AUTH/helpers/imports';
 import COLORS from '../../AUTH/styles/colors';
 import FONTFAMILY from '../../AUTH/styles/fonts';
 
 import StorageService from '../../AUTH/utils/StorageHelper';
+import {screen_width} from '../../AUTH/utils/Dimensions';
 
-import {screen_width, screen_height} from '../../AUTH/utils/Dimensions';
 import ICONS from '../../AUTH/helpers/icons';
+
 import CustomHeader from '../components/CustomHeader';
 
 const SecurityKeys = ({navigation}) => {

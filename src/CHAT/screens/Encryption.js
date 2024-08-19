@@ -61,7 +61,6 @@ const Encryption = ({navigation, route}) => {
             querySnapshot.forEach(doc => {
               fetchedMessages.push(doc.data());
             });
-            // console.log('Fetched messages:', fetchedMessages);
             setSentMessages(fetchedMessages);
           });
         return subscriber;
@@ -73,7 +72,6 @@ const Encryption = ({navigation, route}) => {
     fetchMessages();
   }, []);
 
-  //getting inbox messages
   useEffect(() => {
     const fetchMessages = async () => {
       try {
@@ -87,7 +85,6 @@ const Encryption = ({navigation, route}) => {
             querySnapshot.forEach(doc => {
               fetchedMessages.push(doc.data());
             });
-            // console.log('Fetched messages:', fetchedMessages);
             setReceivedMessages(fetchedMessages);
           });
         return subscriber;
@@ -109,7 +106,6 @@ const Encryption = ({navigation, route}) => {
   );
 
   const toggleTab = tip => setTab(tip);
-
   const navigateToSendMessage = () => {
     const data = {
       receiverId: receiver,

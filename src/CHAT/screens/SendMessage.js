@@ -4,6 +4,7 @@ import {StyleSheet, ScrollView, View, Keyboard, Alert} from 'react-native';
 import firestore from '@react-native-firebase/firestore';
 import uuid from 'react-native-uuid';
 
+import CustomHeader from '../components/CustomHeader';
 import StyledInput from '../components/StyledInput';
 import SmallLoader from '../components/SmallLoader';
 import BtnChat from '../components/BtnChat';
@@ -13,7 +14,7 @@ import algoRSA from '../../Security/RSA';
 import AES from '../../Security/AES';
 
 import COLORS from '../../AUTH/styles/colors';
-import CustomHeader from '../components/CustomHeader';
+
 import ICONS from '../../AUTH/helpers/icons';
 
 const SendMessage = ({navigation, route}) => {
@@ -22,7 +23,7 @@ const SendMessage = ({navigation, route}) => {
   const receiver = ids.receiverId;
   const sendingId = `${sender}_${receiver}`;
 
-  const [receiverName, setReceiverName] = useState("");
+  const [receiverName, setReceiverName] = useState('');
   const [message, setMessage] = useState('');
   const [messageTwo, setMessageTwo] = useState('');
   const [encryptedMessage, setEncryptedMessage] = useState('');
@@ -80,7 +81,6 @@ const SendMessage = ({navigation, route}) => {
   };
 
   const handleEncrypt = () => {
-    // Logic for AES encryption will be added later
     setEncryptedAesKey('');
     const aesKeyTemp = AES.generateKey();
     console.log({messageTwo, aesKeyTemp});
@@ -91,7 +91,6 @@ const SendMessage = ({navigation, route}) => {
   };
 
   const handleEncryptKey = async () => {
-    // Logic for encrypting AES key with receiver's public key will be added later
     setLoading(true);
     const encryptedAesKeyTemp = await algoRSA.encryptSingle(
       receiverPublicKey,
@@ -110,7 +109,6 @@ const SendMessage = ({navigation, route}) => {
     setMessageTwo(message);
     setMessage('');
   };
-
 
   return (
     <View style={styles.outerContainer}>
