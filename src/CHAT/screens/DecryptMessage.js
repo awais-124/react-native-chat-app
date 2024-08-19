@@ -22,7 +22,7 @@ import FONTFAMILY from '../../AUTH/styles/fonts';
 
 import {screen_width} from '../../AUTH/utils/Dimensions';
 import StorageService from '../../AUTH/utils/StorageHelper';
-import CustomHeader from '../components/CustomHeader';
+
 import ICONS from '../../AUTH/helpers/icons';
 
 const DecryptMessage = ({navigation, route}) => {

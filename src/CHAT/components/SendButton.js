@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   View,
   TextInput,
@@ -12,8 +11,6 @@ import COLORS from '../../AUTH/styles/colors';
 import FONTFAMILY from '../../AUTH/styles/fonts';
 
 import {screen_width} from '../../AUTH/utils/Dimensions';
-
-import {InputToolbar} from 'react-native-gifted-chat';
 
 const SendButton = props => {
   const [text, setText] = React.useState('');
@@ -31,18 +28,6 @@ const SendButton = props => {
       setText('');
     }
   };
-  /* <View style={styles.inputToolbarContainer}>
-        <TextInput
-          style={styles.textInput}
-          value={text}
-          onChangeText={setText}
-          placeholder="Type a message..."
-          placeholderTextColor={COLORS.secondary.white}
-        />
-        <TouchableOpacity style={styles.sendButton} onPress={handleSend}>
-          <Image source={ICONS.SEND} />
-        </TouchableOpacity>
-      </View> */
   return (
     <View style={styles.inputToolbarContainer}>
       <TextInput

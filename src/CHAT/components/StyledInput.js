@@ -1,12 +1,10 @@
 import {
   StyleSheet,
-  Text,
   View,
   TextInput,
   TouchableOpacity,
   Image,
 } from 'react-native';
-import React from 'react';
 
 import ICONS from '../../AUTH/helpers/icons';
 import COLORS from '../../AUTH/styles/colors';
@@ -43,7 +41,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: COLORS.secondary.greyFour,
     elevation: 5, // For Android shadow
-    shadowColor: '#000', // For iOS shadow
+    shadowColor: COLORS.secondary.black, // For iOS shadow
     shadowOffset: {width: 0, height: 2}, // For iOS shadow
     shadowOpacity: 0.8, // For iOS shadow
     shadowRadius: 2, // For iOS shadow

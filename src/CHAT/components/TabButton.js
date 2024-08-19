@@ -1,4 +1,4 @@
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import COLORS from '../../AUTH/styles/colors';
 import FONTFAMILY from '../../AUTH/styles/fonts';
@@ -44,6 +44,6 @@ const styles = StyleSheet.create({
     padding: 8,
     borderRadius: 50,
     borderWidth: 0.5,
-    borderColor: COLORS.primary.blue
-  }
+    borderColor: COLORS.primary.blue,
+  },
 });

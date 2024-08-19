@@ -14,13 +14,15 @@ import firestore from '@react-native-firebase/firestore';
 import StorageService from '../../AUTH/utils/StorageHelper';
 
 import ScreenWrapper from '../../AUTH/components/ScreenWrapper';
+import CustomHeader from '../components/CustomHeader';
+import Loader from '../../AUTH/components/Loader';
+
 import FONTFAMILY from '../../AUTH/styles/fonts';
 import COLORS from '../../AUTH/styles/colors';
+
 import ICONS from '../../AUTH/helpers/icons';
 
-import {screen_height, screen_width} from '../../AUTH/utils/Dimensions';
-import Loader from '../../AUTH/components/Loader';
-import CustomHeader from '../components/CustomHeader';
+import {screen_width} from '../../AUTH/utils/Dimensions';
 
 let id = '';
 
@@ -121,9 +123,7 @@ const styles = StyleSheet.create({
     textTransform: 'capitalize',
     color: COLORS.secondary.black,
   },
-
   avatar: {
-    // tintColor: COLORS.primary.blue,
     height: 45,
     width: 45,
     aspectRatio: 1,

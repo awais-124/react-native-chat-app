@@ -1,10 +1,4 @@
-import {
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-  View,
-  StatusBar,
-} from 'react-native';
+import {StyleSheet, View, StatusBar} from 'react-native';
 import React, {useState} from 'react';
 
 import Users from '../tabs/Users';
@@ -45,7 +39,7 @@ export default Chat;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: COLORS.secondary.white,
   },
   bottomTab: {
     position: 'absolute',

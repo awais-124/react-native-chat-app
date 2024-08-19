@@ -1,6 +1,6 @@
 import {StyleSheet, ActivityIndicator, View} from 'react-native';
 import React from 'react';
-import {screen_height, screen_width} from '../../AUTH/utils/Dimensions';
+import {screen_height} from '../../AUTH/utils/Dimensions';
 import COLORS from '../../AUTH/styles/colors';
 
 const SmallLoader = () => {

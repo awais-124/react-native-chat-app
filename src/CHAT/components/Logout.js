@@ -5,11 +5,13 @@ import {
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
-import React from 'react';
+
 import ICONS from '../../AUTH/helpers/icons';
-import COLORS from '../../AUTH/styles/colors';
-import {screen_width} from '../../AUTH/utils/Dimensions';
+
 import FONTFAMILY from '../../AUTH/styles/fonts';
+import COLORS from '../../AUTH/styles/colors';
+
+import {screen_width} from '../../AUTH/utils/Dimensions';
 
 const Logout = ({onClick}) => {
   return (
