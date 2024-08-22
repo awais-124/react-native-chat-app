@@ -18,8 +18,8 @@
 <hr/>
 
 > # Get Code
-- Clone the repo `git clone https://github.com/awais-124/isf-project.git`
-- `cd isf-project`
+- Clone the repo `git clone https://github.com/awais-124/react-native-chat-app.git`
+- `cd react-native-chat-app`
 - run `npm install`
 - run `npm android` for npm
            **OR**
