@@ -19,7 +19,7 @@
 
 > # Get Code
 - Clone the repo `git clone https://github.com/awais-124/isf-project.git`
-- `cd cipher-chat`
+- `cd isf-project`
 - run `npm install`
 - run `npm android` for npm
            **OR**
