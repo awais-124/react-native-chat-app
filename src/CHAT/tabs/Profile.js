@@ -2,7 +2,7 @@ import {useState, useCallback} from 'react';
 
 import {ImageBackground, ScrollView, StyleSheet, View} from 'react-native';
 
-import uuid from 'react-native-uuid';
+import * as Crypto from 'expo-crypto';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 
 import StorageService from '../../AUTH/utils/StorageHelper';
@@ -22,7 +22,7 @@ const Profile = () => {
   const [email, setEmail] = useState('');
   const [dob, setDob] = useState('');
   const [phone, setPhone] = useState('');
-  const [userId, setUserId] = useState(`${uuid.v4()}`);
+  const [userId, setUserId] = useState(`${Crypto.randomUUID()}`);
 
   const goToSecurityKeysScreen = () => navigation.navigate('SecurityKeys');
 
@@ -53,7 +53,7 @@ const Profile = () => {
         setDob(convertTimestampToDate(date));
       };
       fetchUpdatedData();
-    }, [])
+    }, []),
   );
 
   const goToUpdateScreen = () => {

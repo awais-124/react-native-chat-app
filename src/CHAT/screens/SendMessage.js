@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {StyleSheet, ScrollView, View, Keyboard, Alert} from 'react-native';
 
 import firestore from '@react-native-firebase/firestore';
-import uuid from 'react-native-uuid';
+import * as Crypto from 'expo-crypto';
 
 import CustomHeader from '../components/CustomHeader';
 import StyledInput from '../components/StyledInput';
@@ -49,7 +49,7 @@ const SendMessage = ({navigation, route}) => {
   }, []);
 
   const handleSend = async () => {
-    const uniqueId = uuid.v4();
+    const uniqueId = Crypto.randomUUID();
     const myMsg = {
       _id: uniqueId,
       text: encryptedMessage,
@@ -205,4 +205,3 @@ const styles = StyleSheet.create({
     zIndex: 10,
   },
 });
-

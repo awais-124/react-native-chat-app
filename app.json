@@ -1,4 +1,57 @@
 {
-  "name": "CipherChat",
-  "displayName": "CipherChat"
+  "expo": {
+    "name": "CipherChat",
+    "slug": "cipherchat",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#640D6B"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.cipherchat"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.cipherchat",
+      "googleServicesFile": "./firebase/google-services.json"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static"
+          },
+          "android": {
+            "minSdkVersion": 24
+          }
+        }
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": ["./src/assets/Fonts"]
+        }
+      ],
+      "@react-native-community/datetimepicker",
+      "@react-native-firebase/app"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "e459a6e3-4b15-4467-a320-e207aacccedd"
+      }
+    },
+    "owner": "bcs221093"
+  }
 }

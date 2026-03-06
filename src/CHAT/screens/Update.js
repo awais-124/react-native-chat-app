@@ -9,7 +9,7 @@ import {
 import React, {useState} from 'react';
 
 import firestore from '@react-native-firebase/firestore';
-import DatePicker from 'react-native-date-picker';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 import COLORS from '../../AUTH/styles/colors';
 
@@ -121,9 +121,9 @@ const Update = ({navigation, route}) => {
     setLoading(false);
   };
   const onCancelDate = () => setOpen(false);
-  const onConfirmDate = date => {
-    setDate(date);
+  const onChangeDate = (event, selectedDate) => {
     setOpen(false);
+    if (selectedDate) setDate(selectedDate);
   };
 
   return (
@@ -159,19 +159,14 @@ const Update = ({navigation, route}) => {
                 data={date ? date.toDateString() : ''}
                 disabled={false}
               />
-              <DatePicker
-                androidVariant="nativeAndroid"
-                modal
-                open={open}
-                date={date || new Date()}
-                mode="date"
-                onConfirm={onConfirmDate}
-                onCancel={onCancelDate}
-                theme="dark"
-                textColor={s.black}
-                buttonColor={p.orange}
-                title="Pick Date"
-              />
+              {open && (
+                <DateTimePicker
+                  value={date || new Date()}
+                  mode="date"
+                  display="default"
+                  onChange={onChangeDate}
+                />
+              )}
               <BtnSimple
                 text="Update Info"
                 back={p.orange}

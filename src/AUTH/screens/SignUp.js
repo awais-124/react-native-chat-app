@@ -10,9 +10,9 @@ import {
   Keyboard,
 } from 'react-native';
 
-import DatePicker from 'react-native-date-picker';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import firestore from '@react-native-firebase/firestore';
-import uuid from 'react-native-uuid';
+import * as Crypto from 'expo-crypto';
 
 import FLEX from '../styles/flex';
 import COLORS from '../styles/colors';
@@ -43,25 +43,27 @@ const SignUp = ({navigation}) => {
   const [phone, setPhone] = useState('');
   const [pass, setPass] = useState('');
   const [confirmPass, setConfirmPass] = useState('');
-  
+
   const [date, setDate] = useState(null);
   const [open, setOpen] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
   const [visible, setVisible] = useState(false);
-  
+
   const handleEmail = val => setEmail(val);
   const handleName = val => setName(val);
   const handlePass = val => setPass(val);
   const handleConfirmPass = val => setConfirmPass(val);
   const handlePhone = val => setPhone(val);
   const handleDatePicker = () => setOpen(true);
-  
+
   const onCancelDate = () => setOpen(false);
-  const onConfirmDate = date => {
-    setDate(date);
+  const onChangeDate = (event, selectedDate) => {
     setOpen(false);
+    if (selectedDate) {
+      setDate(selectedDate);
+    }
   };
-  
+
   const clearInputs = () => {
     setDate('');
     setEmail('');
@@ -70,12 +72,12 @@ const SignUp = ({navigation}) => {
     setConfirmPass('');
     setPhone('');
   };
-  
+
   const goToSignIn = async () => {
     clearInputs();
     await navigation.navigate('SignIn');
   };
-  
+
   const handleFormSubmission = async () => {
     setVisible(true);
     const {message, isValid} = await HANDLERS.handleFormValidity(
@@ -86,24 +88,24 @@ const SignUp = ({navigation}) => {
       name,
       date,
     );
-    
+
     if (isValid) {
       try {
         const querySnapshot = await firestore()
-        .collection('users')
-        .where('email', '==', email)
-        .get();
+          .collection('users')
+          .where('email', '==', email)
+          .get();
         console.log('EMAIL QUERY', querySnapshot);
         let errorMessage = 'User already Exists with provided email!';
         let alreadyExists = false;
-        
+
         if (!querySnapshot.empty) alreadyExists = true;
-        
+
         if (!alreadyExists) {
           const phoneQuery = await firestore()
-          .collection('users')
-          .where('phone', '==', phone)
-          .get();
+            .collection('users')
+            .where('phone', '==', phone)
+            .get();
           if (!phoneQuery.empty) {
             alreadyExists = true;
             errorMessage = 'User already Exists with provided phone number!';
@@ -112,7 +114,7 @@ const SignUp = ({navigation}) => {
         const {publicKey, privateKey} = await algoRSA.generateKeyPair();
         console.log({publicKey}, {privateKey});
         if (!alreadyExists) {
-          const userId = uuid.v4();
+          const userId = Crypto.randomUUID();
           console.log(userId);
           const passwordHash = await SHA.generateHash(pass + userId);
           console.log({passwordHash});
@@ -147,7 +149,7 @@ const SignUp = ({navigation}) => {
       Alert.alert('Error', message);
     }
   };
-  
+
   useEffect(() => {
     const showSubscription = Keyboard.addListener('keyboardDidShow', () => {
       setIsFocused(true);
@@ -155,13 +157,13 @@ const SignUp = ({navigation}) => {
     const hideSubscription = Keyboard.addListener('keyboardDidHide', () => {
       setIsFocused(false);
     });
-    
+
     return () => {
       showSubscription.remove();
       hideSubscription.remove();
     };
   }, []);
-  
+
   return (
     <ScreenWrapper>
       <ImageBackground
@@ -183,47 +185,42 @@ const SignUp = ({navigation}) => {
                 label="Phone Number"
                 data={phone}
                 onChange={handlePhone}
-                />
+              />
               <LabelledInput
                 label="Email Address"
                 data={email}
                 onChange={handleEmail}
-                />
+              />
               <LabelledInput
                 label="Password"
                 data={pass}
                 onChange={handlePass}
-                />
+              />
               <LabelledInput
                 label="Confirm Password"
                 data={confirmPass}
                 onChange={handleConfirmPass}
-                />
+              />
               <DateInput
                 label="Birthday"
                 onClick={handleDatePicker}
                 data={date ? date.toDateString() : ''}
                 disabled={false}
+              />
+              {open && (
+                <DateTimePicker
+                  value={date || new Date()}
+                  mode="date"
+                  display="default"
+                  onChange={onChangeDate}
                 />
-              <DatePicker
-                androidVariant="nativeAndroid"
-                modal
-                open={open}
-                date={date || new Date()}
-                mode="date"
-                onConfirm={onConfirmDate}
-                onCancel={onCancelDate}
-                theme="dark"
-                textColor={s.black}
-                buttonColor={p.orange}
-                title="Pick Date"
-                />
+              )}
               <BtnSimple
                 text="Sign Up"
                 back={p.orange}
                 color={s.white}
                 onClick={handleFormSubmission}
-                />
+              />
               <View style={styles.footer}>
                 <Text style={styles.footerText}>Already have an account?</Text>
                 <TouchableOpacity onPress={goToSignIn}>

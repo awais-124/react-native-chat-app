@@ -1,9 +1,12 @@
-import {sha256} from 'react-native-sha256';
+import * as Crypto from 'expo-crypto';
 
 // Function to generate a hash from a given string
 async function generateHash(inputString) {
   try {
-    const hashedString = await sha256(inputString);
+    const hashedString = await Crypto.digestStringAsync(
+      Crypto.CryptoDigestAlgorithm.SHA256,
+      inputString,
+    );
     return hashedString;
   } catch (error) {
     console.error('Error generating hash:', error);

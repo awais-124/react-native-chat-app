@@ -67,3 +67,10 @@ yarn-error.log
 
 # testing
 /coverage
+
+android/
+*.apk
+*.aab
+.env
+*env
+.env.local
