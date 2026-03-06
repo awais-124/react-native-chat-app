@@ -41,11 +41,16 @@
       [
         "expo-font",
         {
-          "fonts": ["./src/assets/Fonts"]
+          "fonts": [
+            "./src/assets/Fonts"
+          ]
         }
       ],
       "@react-native-community/datetimepicker",
-      "@react-native-firebase/app"
+      "@react-native-firebase/app",
+      "expo-sqlite",
+      "@react-native-google-signin/google-signin",
+      "expo-web-browser"
     ],
     "extra": {
       "eas": {

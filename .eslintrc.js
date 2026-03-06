@@ -1,4 +1,7 @@
 module.exports = {
-  root: true,
-  extends: '@react-native',
+  extends: 'expo',
+  env: {
+    node: true,
+    browser: true,
+  },
 };
