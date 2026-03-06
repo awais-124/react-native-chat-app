@@ -10,7 +10,8 @@
     "test": "jest",
     "prebuild:clean": "rm -rf android && npx expo prebuild --clean --platform android",
     "build:android:dev": "eas build -p android --profile development --local",
-    "build:android:prod": "eas build -p android --profile production --local"
+    "build:android:prod": "eas build -p android --profile production --local",
+    "gradle:clean": "cd android && ./gradlew clean && cd .."
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "2.2.0",

@@ -4,13 +4,26 @@
   },
   "build": {
     "development": {
+      "distribution": "internal",
+      "credentialsSource": "remote",
       "developmentClient": true,
-      "distribution": "internal"
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "APP_ENV": "development"
+      }
     },
-    "preview": {
-      "distribution": "internal"
-    },
-    "production": {}
+    "production": {
+      "distribution": "store",
+      "credentialsSource": "remote",
+      "android": {
+        "buildType": "app-bundle"
+      },
+      "env": {
+        "APP_ENV": "production"
+      }
+    }
   },
   "submit": {
     "production": {}
