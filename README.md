@@ -1,7 +1,9 @@
 # **CipherChat - A Secure Messaging Mobile Application**
-### Developed using React Native and Firebase
+
+### Developed using React Native (Expo SDK 54) and Firebase
 
 > ### Main Features
+
 - End to End Encryption
 - Implemented cryptographic algorithms (RSA, AES, SHA-256)
 - Used Hashing for password saving
@@ -10,42 +12,37 @@
 - Accounts Login/Registration
 - Real-time chatting
 - Confidentiality, Integrity and Availability of User's Data
-- User-freindly Interface
+- User-friendly Interface
 - Dynamic and Optimized Code
-- Configured for Android devices
-- npm and yarn compatible
+- Configured using Expo Continuous Native Generation (CNG)
+- EAS (Expo Application Services) support included
 
 <hr/>
 
 > # Get Code
+
 - Clone the repo `git clone https://github.com/awais-124/react-native-chat-app.git`
 - `cd react-native-chat-app`
-- run `npm install`
-- run `npm android` for npm
-           **OR**
-- run `yarn android` for yarn      
-- You are good to go now
-
+- Install dependencies: `npm install`
+- **Important**: Add your `google-services.json` file to the root of the project to enable Firebase!
+- Run local development build for Android: `npm run build:android:dev`
+- Start the development server: `npm start`
+- Run natively: `npm run android`
 
 <hr/>
 
+> ### Core Sub-Libraries Used
 
-> ### Libraries used 
 ```json
-    "react": "18.2.0",
-    "react-native": "0.73.4",
-    "react-native-screens": "^3.31.1",
-    "@react-navigation/native": "^6.1.17",
-    "@react-navigation/native-stack": "^6.9.26",
-    "@react-native-firebase/app": "^20.0.0",
-    "@react-native-firebase/firestore": "^20.0.0",
-    "react-native-asset": "^2.1.1",
-    "react-native-date-picker": "^5.0.2",
-    "react-native-gifted-chat": "^2.4.0",
-    "react-native-safe-area-context": "^4.10.1",
+    "expo": "~54.0.0",
+    "react": "19.1.0",
+    "react-native": "0.81.5",
+    "@react-native-firebase/app": "^23.8.6",
+    "@react-native-firebase/firestore": "^23.8.6",
+    "expo-crypto": "~15.0.8",
+    "@react-native-community/datetimepicker": "8.4.4",
+    "react-native-gifted-chat": "^3.3.2",
     "react-native-crypto-js": "^1.0.0",
     "react-native-rsa-native": "^2.0.5",
-    "react-native-sha256": "^1.4.10",
-    "react-native-uuid": "^2.0.2"
-    "@react-native-async-storage/async-storage": "^1.23.1",
+    "@react-navigation/native": "^7.1.33"
 ```
